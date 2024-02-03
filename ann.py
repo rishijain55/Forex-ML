@@ -1,24 +1,8 @@
-# feed forward neural network with 2 hidden layers, input layer of 20 neurons, output layer of 1 neuron
-#use tanh as activation function for hidden layers and linear for output layer
-
-# Fitness_Function(chromosome)
-# hidden_layer_1 := chromosome(0)
-# hidden_layer_2 := chromosome(1)
-# input_layer := 20
-# output_layer := 1
-# ann := CreateAnn(hidden_layer_1, hidden_layer_2, input_layer, output_layer)
-# ann := TRAIN(ann)
-# prediction := SIMULATE(ann)
-# results := EVALUATE(prediction)
-# wrong_predictions := GET_WRONG_PREDICTIONS(results)
-# mae := mae(results)
-# aof := a*mae + b*wrong_predictions
-# return aof end
-
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPRegressor
 from sklearn.metrics import mean_squared_error
+
 
 class ANN:
     def __init__(self, hidden_layer_1, hidden_layer_2, input_layer, output_layer, activation, solver, max_iter, random_state):
@@ -26,7 +10,7 @@ class ANN:
         self.hidden_layer_2 = hidden_layer_2
         self.input_layer = input_layer
         self.output_layer = output_layer
-        self.model = MLPRegressor(hidden_layer_sizes=(self.hidden_layer_1, self.hidden_layer_2), activation=activation, solver=solver, max_iter=max_iter, random_state=random_state, validation_fraction=0.2, early_stopping=True, n_iter_no_change=50, learning_rate='adaptive', learning_rate_init=0.001)
+        self.model = MLPRegressor(hidden_layer_sizes=(self.hidden_layer_1, self.hidden_layer_2), activation=activation, solver=solver, max_iter=max_iter, random_state=random_state, validation_fraction=0.2, early_stopping=True, n_iter_no_change=50, learning_rate_init=0.001)
         self.scaler = StandardScaler()
 
     def fit(self, X, y):

@@ -19,10 +19,8 @@ class GeneticAlgorithm:
     def selection(self, population):
         # Roulette-wheel selection
         fitness_values = np.array([self.fitness_function(chromosome) for chromosome in population])
-        cumulative_fitness = np.cumsum(fitness_values)
         selection_probabilities = fitness_values / fitness_values.sum()
 
-        # Elitism: Select the best individual directly
         elite_index = np.argmax(fitness_values)
         selected_indices = [elite_index]
 

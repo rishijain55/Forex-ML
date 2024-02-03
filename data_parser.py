@@ -51,11 +51,9 @@ class DataParser:
     
     def tranform_X_to_returns(self, X):
         X_col = X.shape[1]
-        X[:, 1:X_col] = X[:, 1:X_col]/X[:, 0:X_col-1]
-        X = X[:, 1:X_col]
-        #take the log of the returns
-        X = np.log(X)
-        return X
+        X_new = X[:, 1:X_col]/X[:, 0:X_col-1]
+        X_new = np.log(X_new)
+        return X_new
     
     def transform_X_with_IWMA(self, X):
         X_new = np.zeros(X.shape)

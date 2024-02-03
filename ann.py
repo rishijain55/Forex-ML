@@ -10,7 +10,7 @@ class ANN:
         self.hidden_layer_2 = hidden_layer_2
         self.input_layer = input_layer
         self.output_layer = output_layer
-        self.model = MLPRegressor(hidden_layer_sizes=(self.hidden_layer_1, self.hidden_layer_2), activation=activation, solver=solver, max_iter=max_iter, random_state=random_state, validation_fraction=0.2, early_stopping=True, n_iter_no_change=50, learning_rate_init=0.001)
+        self.model = MLPRegressor(hidden_layer_sizes=(self.hidden_layer_1, self.hidden_layer_2), activation=activation, solver=solver, max_iter=max_iter, random_state=random_state, validation_fraction=0.2, early_stopping=True, n_iter_no_change=50, learning_rate_init=0.001, learning_rate='adaptive')
         self.scaler = StandardScaler()
 
     def fit(self, X, y):

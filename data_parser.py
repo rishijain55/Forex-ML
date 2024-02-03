@@ -63,9 +63,13 @@ class DataParser:
         return X_new
     
     def normalize_data(self, X,y):
-        X = (X - np.mean(X, axis=0))/np.std(X, axis=0)
-        y = (y - np.mean(y, axis=0))/np.std(y, axis=0)
-        return X, y
+        x_mean = np.mean(X, axis=0)
+        x_std = np.std(X, axis=0)
+        X = (X - x_mean)/x_std
+        y_mean = np.mean(y)
+        y_std = np.std(y)
+        y = (y - y_mean)/y_std
+        return X, y, x_mean, x_std, y_mean, y_std
 
 
 

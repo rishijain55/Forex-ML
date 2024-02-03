@@ -33,11 +33,11 @@ class ANN:
     
     def num_correct(self, y_test,y_pred):
         #correct is where sign of prediction and actual are the same
-        return np.sum(np.sign(y_pred) == np.sign(y_test))
+        return np.sum(np.sign(y_pred-1) == np.sign(y_test-1))
     
     def num_wrong(self, y_test,y_pred):
         #wrong is where sign of prediction and actual are different
-        return np.sum(np.sign(y_pred) != np.sign(y_test))
+        return np.sum(np.sign(y_pred-1) != np.sign(y_test-1))
     
     def get_params(self):
         return self.model.get_params()
